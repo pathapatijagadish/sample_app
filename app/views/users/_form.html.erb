@@ -1,0 +1,21 @@
+<%= form_for(@user) do |f| %>
+<% if @user.errors.any? %>
+<div id="erros">
+  <h1><%= pluralize(@user.errors.count, "error") %> probhited </h1>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+   </ul>
+</div>
+<% end %>
+<p><%= f.label :fname,"First Name" %><%= f.text_field :fname %></p>
+<p><%= f.label :lname, "Last Name" %><%= f.text_field :lname %></p>
+<p><%= f.label :email %><%= f.text_field :email %></p>
+<p><%= f.label :password %><%= f.password_field :password %></p>
+<p>
+	<%= f.label :language, "Language" %><br/>
+	<%= options_for_select([['Wookieespeak', 'wk'], ['English', 'en']]) %>
+</p>
+<p><%= f.submit @user.new_record? ? 'Create': 'Update' %></p>
+<% end %>

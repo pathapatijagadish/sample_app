@@ -1,0 +1,8 @@
+<% if @user %>
+<p>fname :<%= @user.fname %></p>
+<p>lname :<%= @user.lname %></p>
+<p>email :<%= @user.email %></p>
+<% else %>
+<p> records are not found</p>
+<% end %>
+<%= link_to "users list",users_path %>
